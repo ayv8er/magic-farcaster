@@ -29,6 +29,7 @@ function App() {
   };
 
   const handlePersonalSign = async () => {
+    console.log('publicAddress', metadata.publicAddress)
     const signedMessage = await web3.eth.personal.sign('abc', metadata.publicAddress);
     console.log('signedMessage', signedMessage)
   }
