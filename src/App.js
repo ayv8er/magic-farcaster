@@ -28,6 +28,11 @@ function App() {
       })
   };
 
+  const handleGetInfo = async () => {
+    const metadata = await magic.user.getInfo();
+    console.log('Magic metadata', metadata)
+  }
+
   const handlePersonalSign = async () => {
     const signedMessage = await web3.eth.personal.sign('abc', metadata.publicAddress, '123');
     console.log('signedMessage', signedMessage)
@@ -73,7 +78,10 @@ function App() {
             showUI
           </button>
           <button onClick={handleGetDidToken}>
-            get didToken
+            getIdToken
+          </button>
+          <button onClick={handleGetInfo}>
+            getInfo
           </button>
           <button onClick={handleLogoutClick}>
             Logout
