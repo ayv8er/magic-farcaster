@@ -30,6 +30,7 @@ function App() {
 
   const handleGetInfo = async () => {
     const metadata = await magic.user.getInfo();
+    setMetadata(metadata)
     console.log('Magic metadata', metadata)
   }
 
