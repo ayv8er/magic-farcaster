@@ -46,7 +46,8 @@ function App() {
   };
 
   const handleLogoutClick = async () => {
-    const boolean = await magic.user.logout()
+    const boolean = await magic.user.logout();
+    setMetadata(null)
     console.log('is Magic logged out?', boolean)
   };
 
