@@ -45,8 +45,8 @@ function App() {
       });
   };
 
-  const handleLogoutClick = () => {
-    const boolean = magic.user.logout()
+  const handleLogoutClick = async () => {
+    const boolean = await magic.user.logout()
     console.log('is Magic logged out?', boolean)
   };
 
