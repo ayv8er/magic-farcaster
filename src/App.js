@@ -5,7 +5,6 @@ import './App.css';
 
 function App() {
   const [metadata, setMetadata] = React.useState(null);
-  const [message, setMessage] = React.useState('');
 
   const handleFarcasterLogin = async () => {
     const handle = magic.farcaster.login({ showUI: true });
@@ -28,6 +27,11 @@ function App() {
 
       })
   };
+
+  const handlePersonalSign = async () => {
+    const signedMessage = await web3.eth.personal.sign('abc', metadata.publicAddress);
+    console.log('signedMessage', signedMessage)
+  }
 
   const handleGetDidToken = async () => {
     const did = await magic.user.getIdToken()
@@ -61,6 +65,9 @@ function App() {
       }
       {
         metadata ? <div>
+          <button onClick={handlePersonalSign}>
+            Personal sign "abc"
+          </button>
           <button onClick={handleShowUi}>
             showUI
           </button>
